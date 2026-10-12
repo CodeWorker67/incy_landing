@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://incy-lab.top/sitemap.xml
