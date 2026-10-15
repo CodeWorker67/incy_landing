@@ -2,37 +2,43 @@ import { Helmet } from 'react-helmet-async';
 import Header from '@components/navigation/Header';
 import Footer from '@components/navigation/Footer';
 import HeroSection from '@components/sections/HeroSection';
-import Ticker from '@components/sections/Ticker';
-import FeaturesSection from '@components/sections/FeaturesSection';
+import CapsuleSection from '@components/sections/CapsuleSection';
+import DownloadSection from '@components/sections/DownloadSection';
 import StepsSection from '@components/sections/StepsSection';
-import PricingSection from '@components/sections/PricingSection';
+import KeySection from '@components/sections/KeySection';
+import FeaturesSection from '@components/sections/FeaturesSection';
+import HappSection from '@components/sections/HappSection';
 import FaqSection from '@components/sections/FaqSection';
-import CtaSection from '@components/sections/CtaSection';
+import StickyCta from '@components/sections/StickyCta';
+
+const TITLE = 'INCY (Инси) — официальный сайт: скачать приложение для ПК, Android, iPhone, ТВ';
+const DESCRIPTION =
+  'Официальный сайт INCY (Инси): скачайте приложение на ПК, Android, iPhone или ТВ и подключитесь к серверу по ключу-подписке. Один ключ — на всех устройствах. Рабочий ключ — 1 день бесплатно.';
 
 export default function HomePage() {
   return (
-    <div style={{ width: '100%', fontFamily: 'Manrope,-apple-system,sans-serif', color: '#0F0F0F' }}>
+    <div className="min-h-screen antialiased">
       <Helmet>
-        <title>INCY — Официальный сайт, 1 день бесплатно</title>
-        <meta
-          name="description"
-          content="Самый быстрый и стабильный сервис, моментальное подключение, работает везде! 1 день бесплатно, аккаунт создаётся автоматически"
-        />
-        <meta property="og:title" content="INCY — Официальный сайт, 1 день бесплатно" />
-        <meta
-          property="og:description"
-          content="Самый быстрый и стабильный сервис, моментальное подключение, работает везде! 1 день бесплатно, аккаунт создаётся автоматически"
-        />
+        <title>{TITLE}</title>
+        <meta name="description" content={DESCRIPTION} />
+        <meta property="og:title" content={TITLE} />
+        <meta property="og:description" content={DESCRIPTION} />
+        <meta name="twitter:title" content={TITLE} />
+        <meta name="twitter:description" content={DESCRIPTION} />
       </Helmet>
       <Header />
-      <HeroSection />
-      <Ticker />
-      <FeaturesSection />
-      <StepsSection />
-      <PricingSection />
-      <FaqSection />
-      <CtaSection />
+      <main className="shell" style={{ paddingTop: '2.2rem', paddingBottom: '3.5rem' }}>
+        <HeroSection />
+        <CapsuleSection />
+        <DownloadSection />
+        <StepsSection />
+        <KeySection />
+        <FeaturesSection />
+        <HappSection />
+        <FaqSection />
+      </main>
       <Footer />
+      <StickyCta />
     </div>
   );
 }

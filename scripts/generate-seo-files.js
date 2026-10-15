@@ -41,7 +41,7 @@ const siteUrl = (
   'https://incy-lab.top'
 ).replace(/\/$/, '');
 
-const staticPaths = ['/', '/privacy', '/terms'];
+const staticPaths = ['/', '/analog-happ', '/privacy', '/terms'];
 const lastmod = new Date().toISOString().slice(0, 10);
 
 const urls = staticPaths

@@ -1,126 +1,97 @@
 import { Link } from 'react-router-dom';
 import { useTrackedLinks } from '@/hooks/useTrackedLinks';
-import { DOWNLOADS, ROUTES } from '@utils/constants';
+import { BOT_START, ROUTES } from '@utils/constants';
 
 export default function Footer() {
-  const { supportUrl } = useTrackedLinks();
-
+  const { botLink } = useTrackedLinks();
   return (
-    <footer style={{ background: '#0B0D12', padding: '52px clamp(20px,4vw,56px) 28px' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: 36,
-            marginBottom: 36,
-          }}
-        >
+    <footer style={{ background: '#050805', borderTop: '1px solid var(--color-line)' }}>
+      <div className="shell" style={{ paddingTop: '2.75rem', paddingBottom: '2.75rem', fontSize: '0.9rem' }}>
+        <div className="grid-footer">
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-              <img
-                src="/favicon.svg"
-                alt=""
-                width={36}
-                height={36}
-                style={{ borderRadius: 11, display: 'block' }}
-              />
-              <span style={{ fontSize: 18, fontWeight: 800, color: '#fff' }}>INCY</span>
-            </div>
-            <p style={{ fontSize: 13, color: '#3F424D', lineHeight: 1.9 }}>
-              Конфигурацию предоставляет Zoomersky FZE
-              <br />
-              License No. UAE-FZE-2023-38521
-              <br />
-              Business Bay, Dubai, UAE
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 800,
+                fontSize: '1.3rem',
+                letterSpacing: '-0.02em',
+                color: 'var(--color-ink)',
+              }}
+            >
+              INCY
+            </span>
+            <p className="mt-2" style={{ fontSize: '0.82rem', color: 'var(--color-ink-faint)', maxWidth: '26ch' }}>
+              Приложение для подключения к VPN по своему ключу. Один ключ — на всех устройствах: ПК, Android, iPhone,
+              ТВ.
             </p>
           </div>
           <div>
-            <h4
-              style={{
-                fontSize: 11,
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                letterSpacing: 1,
-                color: '#3F424D',
-                marginBottom: 14,
-              }}
-            >
-              Скачать INCY
-            </h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+            <p style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--color-ink)' }}>Приложение</p>
+            <ul className="mt-2" style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
               <li>
-                <a className="ftr-link" href={DOWNLOADS.ios} target="_blank" rel="noopener noreferrer">
-                  App Store (iOS)
+                <a href="#download" style={{ color: 'var(--color-ink-soft)' }}>
+                  Скачать INCY
                 </a>
               </li>
               <li>
-                <a className="ftr-link" href={DOWNLOADS.android} target="_blank" rel="noopener noreferrer">
-                  Google Play (Android)
+                <a href="#steps" style={{ color: 'var(--color-ink-soft)' }}>
+                  Как настроить
                 </a>
               </li>
               <li>
-                <a className="ftr-link" href={DOWNLOADS.desktop} target="_blank" rel="noopener noreferrer">
-                  Windows / macOS
+                <a href="#key" style={{ color: 'var(--color-ink-soft)' }}>
+                  Ключи для INCY
                 </a>
               </li>
             </ul>
           </div>
           <div>
-            <h4
-              style={{
-                fontSize: 11,
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                letterSpacing: 1,
-                color: '#3F424D',
-                marginBottom: 14,
-              }}
-            >
-              Сервис
-            </h4>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+            <p style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--color-ink)' }}>Помощь</p>
+            <ul className="mt-2" style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
               <li>
-                <a className="ftr-link" href={supportUrl} target="_blank" rel="noopener noreferrer">
-                  Поддержка
+                <a href="#faq" style={{ color: 'var(--color-ink-soft)' }}>
+                  INCY не работает
                 </a>
               </li>
               <li>
-                <a className="ftr-link" href="/#pricing">
-                  Тарифы
+                <Link to={ROUTES.ANALOG_HAPP} style={{ color: 'var(--color-ink-soft)' }}>
+                  Аналог Happ
+                </Link>
+              </li>
+              <li>
+                <a href="#faq" style={{ color: 'var(--color-ink-soft)' }}>
+                  Вопросы и ответы
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p style={{ fontFamily: 'var(--font-display)', fontWeight: 700, color: 'var(--color-ink)' }}>О сервисе</p>
+            <ul className="mt-2" style={{ display: 'flex', flexDirection: 'column', gap: '0.375rem' }}>
+              <li>
+                <a href="#top" style={{ color: 'var(--color-ink-soft)' }}>
+                  О INCY
                 </a>
               </li>
               <li>
-                <a className="ftr-link" href="/#faq">
-                  FAQ
+                <a href={botLink(BOT_START.footer)} rel="noopener noreferrer" target="_blank" style={{ color: 'var(--color-ink-soft)' }}>
+                  Telegram-бот
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div
+        <p
+          className="mt-6"
           style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: 10,
-            paddingTop: 20,
-            borderTop: '1px solid #1A1D24',
-            fontSize: 12,
-            color: '#3F424D',
+            paddingTop: '1.25rem',
+            borderTop: '1px solid var(--color-line)',
+            fontSize: '0.78rem',
+            color: 'var(--color-ink-faint)',
           }}
         >
-          <span>© 2026 Zoomersky FZE</span>
-          <span style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
-            <Link className="ftr-legal" to={ROUTES.PRIVACY}>
-              Политика конфиденциальности
-            </Link>
-            <Link className="ftr-legal" to={ROUTES.TERMS}>
-              Пользовательское соглашение
-            </Link>
-          </span>
-        </div>
+          INCY — кросс-платформенный клиент для подключения к VPN по ключу/подписке. © 2026 INCY.
+        </p>
       </div>
     </footer>
   );

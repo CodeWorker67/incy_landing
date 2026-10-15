@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import HomePage from '@pages/HomePage';
+import AnalogHappPage from '@pages/AnalogHappPage';
 import PrivacyPage from '@pages/PrivacyPage';
 import TermsPage from '@pages/TermsPage';
 import { ROUTES } from '@utils/constants';
@@ -36,6 +37,7 @@ export default function App() {
         <ScrollOnRouteChange />
         <Routes>
           <Route path={ROUTES.HOME} element={<HomePage />} />
+          <Route path={ROUTES.ANALOG_HAPP} element={<AnalogHappPage />} />
           <Route path={ROUTES.PRIVACY} element={<PrivacyPage />} />
           <Route path={ROUTES.TERMS} element={<TermsPage />} />
           <Route path="*" element={<HomePage />} />

@@ -1,22 +1,30 @@
-import { useEffect, useState } from 'react';
-import { AUTH_URL, SUPPORT_URL } from '@utils/constants';
+import { useCallback, useEffect, useState } from 'react';
+import { BOT_URL, SITE_URL, SUPPORT_URL } from '@utils/constants';
 import {
-  buildAuthUrl,
+  buildBotUrl,
+  buildSiteUrl,
   buildSupportUrl,
   getYandexClientId,
 } from '@utils/trackedLinks';
 
-/** AUTH и SUPPORT с ?start= и ClientID из Яндекс.Метрики. */
 export function useTrackedLinks() {
-  const [authUrl, setAuthUrl] = useState(() => buildAuthUrl(AUTH_URL, null));
-  const [supportUrl, setSupportUrl] = useState(SUPPORT_URL);
+  const [clientId, setClientId] = useState(null);
 
   useEffect(() => {
-    getYandexClientId().then((clientId) => {
-      setAuthUrl(buildAuthUrl(AUTH_URL, clientId));
-      setSupportUrl(buildSupportUrl(SUPPORT_URL, clientId));
-    });
+    getYandexClientId().then(setClientId);
   }, []);
 
-  return { authUrl, supportUrl };
+  const siteLink = useCallback(
+    (medium, campaign = 'home') => buildSiteUrl(SITE_URL, { medium, campaign }, clientId),
+    [clientId],
+  );
+
+  const botLink = useCallback(
+    (startTag) => buildBotUrl(BOT_URL, startTag, clientId),
+    [clientId],
+  );
+
+  const supportUrl = buildSupportUrl(SUPPORT_URL, clientId);
+
+  return { siteLink, botLink, supportUrl, clientId };
 }

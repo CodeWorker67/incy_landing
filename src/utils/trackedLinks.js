@@ -1,10 +1,15 @@
 const YANDEX_METRIKA_ID =
   Number(import.meta.env.VITE_YANDEX_METRIKA_ID) || 113482931;
 
-export function buildAuthUrl(base, clientId) {
+const UTM_SOURCE = import.meta.env.VITE_UTM_SOURCE || 'incywork';
+
+/** Сайт провайдера: UTM-метки + ClientID из Метрики. */
+export function buildSiteUrl(base, { medium, campaign = 'home' }, clientId) {
   try {
     const url = new URL(base);
-    url.searchParams.set('start', 'incy_lab');
+    url.searchParams.set('utm_source', UTM_SOURCE);
+    url.searchParams.set('utm_medium', medium);
+    url.searchParams.set('utm_campaign', campaign);
     if (clientId) {
       url.searchParams.set('ClientIDYandex', clientId);
     }
@@ -12,6 +17,25 @@ export function buildAuthUrl(base, clientId) {
   } catch {
     return base;
   }
+}
+
+/** Telegram-бот: start-метка слота + ClientID из Метрики. */
+export function buildBotUrl(base, startTag, clientId) {
+  try {
+    const url = new URL(base);
+    url.searchParams.set('start', startTag);
+    if (clientId) {
+      url.searchParams.set('ClientIDYandex', clientId);
+    }
+    return url.href;
+  } catch {
+    return base;
+  }
+}
+
+/** @deprecated используйте buildSiteUrl */
+export function buildAuthUrl(base, clientId) {
+  return buildSiteUrl(base, { medium: 'legacy', campaign: 'home' }, clientId);
 }
 
 export function buildSupportUrl(base, clientId) {

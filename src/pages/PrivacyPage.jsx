@@ -7,7 +7,7 @@ export default function PrivacyPage() {
   const { supportUrl } = useTrackedLinks();
 
   return (
-    <div style={{ width: '100%', fontFamily: 'Manrope,-apple-system,sans-serif', color: '#0F0F0F', background: '#fff' }}>
+    <div className="min-h-screen antialiased">
       <Helmet>
         <title>Политика конфиденциальности — INCY</title>
       </Helmet>
