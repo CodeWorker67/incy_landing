@@ -197,7 +197,7 @@ export default function AnalogHappPage() {
         </article>
 
         <div className="mt-8">
-          <TrialKeyCta campaign="analog-happ" />
+          <TrialKeyCta />
         </div>
 
         <nav className="mt-12" aria-label="Читайте также">
@@ -228,7 +228,7 @@ export default function AnalogHappPage() {
         </section>
       </main>
       <Footer />
-      <StickyCta campaign="analog-happ" />
+      <StickyCta />
     </div>
   );
 }

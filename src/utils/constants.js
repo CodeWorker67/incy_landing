@@ -25,11 +25,3 @@ export const DOWNLOADS = {
   android: 'https://play.google.com/store/apps/details?id=llc.itdev.incy&hl=ru',
   desktop: 'https://github.com/INCY-DEV/incy-platforms',
 };
-
-/** Суффикс ?start= для бота (как на incy.work). */
-export const BOT_START = {
-  homeHard: 'incywork_trial_home_hard',
-  analogHappHard: 'incywork_trial_analog_happ_hard',
-  footer: 'incywork_trial_footer',
-  mobileMenu: 'incywork_trial_menu',
-};

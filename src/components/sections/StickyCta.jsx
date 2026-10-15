@@ -3,8 +3,8 @@ import { useTrackedLinks } from '@/hooks/useTrackedLinks';
 
 const STORAGE_KEY = 'incy_sticky_closed';
 
-export default function StickyCta({ campaign = 'home' }) {
-  const { siteLink } = useTrackedLinks();
+export default function StickyCta() {
+  const { siteUrl } = useTrackedLinks();
   const barRef = useRef(null);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function StickyCta({ campaign = 'home' }) {
   return (
     <div className="sticky-cta" ref={barRef} hidden>
       <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-ink)' }}>Рабочий ключ для INCY</span>
-      <a href={siteLink('sticky-tg', campaign)} rel="nofollow" className="btn btn-win btn-sm">
+      <a href={siteUrl} rel="nofollow" className="btn btn-win btn-sm">
         1 день бесплатно →
       </a>
       <button type="button" className="sticky-cta-x" aria-label="Скрыть предложение" onClick={close}>

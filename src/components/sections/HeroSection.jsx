@@ -42,7 +42,7 @@ function HeroVisual() {
 }
 
 export default function HeroSection() {
-  const { siteLink } = useTrackedLinks();
+  const { siteUrl } = useTrackedLinks();
 
   return (
     <section id="top" className="hero hero-grid">
@@ -62,7 +62,7 @@ export default function HeroSection() {
           <a href="#download" className="btn btn-win">
             Скачать INCY
           </a>
-          <a href={siteLink('hero')} rel="nofollow" className="btn btn-ghost">
+          <a href={siteUrl} rel="nofollow" className="btn btn-ghost">
             Ключ на 1 день бесплатно →
           </a>
         </div>

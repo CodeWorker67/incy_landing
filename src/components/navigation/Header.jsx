@@ -1,6 +1,6 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTrackedLinks } from '@/hooks/useTrackedLinks';
-import { BOT_START, ROUTES } from '@utils/constants';
+import { ROUTES } from '@utils/constants';
 
 const NAV = [
   { hash: '#download', label: 'Скачать' },
@@ -14,9 +14,7 @@ function sectionHref(hash) {
 }
 
 export default function Header() {
-  const { pathname } = useLocation();
-  const { siteLink, botLink } = useTrackedLinks();
-  const campaign = pathname.startsWith(ROUTES.ANALOG_HAPP) ? 'analog-happ' : 'home';
+  const { siteUrl, botUrl } = useTrackedLinks();
 
   return (
     <>
@@ -38,7 +36,7 @@ export default function Header() {
             </Link>
           </nav>
           <div className="head-right">
-            <a href={siteLink('header', campaign)} rel="nofollow" className="btn btn-win btn-sm">
+            <a href={siteUrl} rel="nofollow" className="btn btn-win btn-sm">
               1 день бесплатно
             </a>
             <details className="mobile-nav">
@@ -59,7 +57,7 @@ export default function Header() {
                 <a href={sectionHref('#faq')} className="m-head">
                   Поддержка
                 </a>
-                <a href={botLink(BOT_START.mobileMenu)} rel="noopener noreferrer" target="_blank" className="m-head">
+                <a href={botUrl} rel="noopener noreferrer" target="_blank" className="m-head">
                   Telegram-бот
                 </a>
               </div>

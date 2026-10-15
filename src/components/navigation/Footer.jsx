@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useTrackedLinks } from '@/hooks/useTrackedLinks';
-import { BOT_START, ROUTES } from '@utils/constants';
+import { ROUTES } from '@utils/constants';
 
 export default function Footer() {
-  const { botLink } = useTrackedLinks();
+  const { botUrl } = useTrackedLinks();
   return (
     <footer style={{ background: '#050805', borderTop: '1px solid var(--color-line)' }}>
       <div className="shell" style={{ paddingTop: '2.75rem', paddingBottom: '2.75rem', fontSize: '0.9rem' }}>
@@ -74,7 +74,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href={botLink(BOT_START.footer)} rel="noopener noreferrer" target="_blank" style={{ color: 'var(--color-ink-soft)' }}>
+                <a href={botUrl} rel="noopener noreferrer" target="_blank" style={{ color: 'var(--color-ink-soft)' }}>
                   Telegram-бот
                 </a>
               </li>

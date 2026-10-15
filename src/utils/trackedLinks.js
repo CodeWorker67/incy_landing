@@ -1,15 +1,14 @@
 const YANDEX_METRIKA_ID =
   Number(import.meta.env.VITE_YANDEX_METRIKA_ID) || 113482931;
 
-const UTM_SOURCE = import.meta.env.VITE_UTM_SOURCE || 'incywork';
+const SITE_START = import.meta.env.VITE_SITE_START || 'incy_lab';
+const BOT_START_PREFIX = import.meta.env.VITE_BOT_START_PREFIX || 'YDincy_lab_';
 
-/** Сайт провайдера: UTM-метки + ClientID из Метрики. */
-export function buildSiteUrl(base, { medium, campaign = 'home' }, clientId) {
+/** Сайт: ?start=incy_lab&ClientIDYandex=… */
+export function buildSiteUrl(base, clientId) {
   try {
     const url = new URL(base);
-    url.searchParams.set('utm_source', UTM_SOURCE);
-    url.searchParams.set('utm_medium', medium);
-    url.searchParams.set('utm_campaign', campaign);
+    url.searchParams.set('start', SITE_START);
     if (clientId) {
       url.searchParams.set('ClientIDYandex', clientId);
     }
@@ -19,13 +18,12 @@ export function buildSiteUrl(base, { medium, campaign = 'home' }, clientId) {
   }
 }
 
-/** Telegram-бот: start-метка слота + ClientID из Метрики. */
-export function buildBotUrl(base, startTag, clientId) {
+/** Telegram-бот: ?start=YDincy_lab_{ClientID} */
+export function buildBotUrl(base, clientId) {
   try {
     const url = new URL(base);
-    url.searchParams.set('start', startTag);
     if (clientId) {
-      url.searchParams.set('ClientIDYandex', clientId);
+      url.searchParams.set('start', `${BOT_START_PREFIX}${clientId}`);
     }
     return url.href;
   } catch {
@@ -35,19 +33,11 @@ export function buildBotUrl(base, startTag, clientId) {
 
 /** @deprecated используйте buildSiteUrl */
 export function buildAuthUrl(base, clientId) {
-  return buildSiteUrl(base, { medium: 'legacy', campaign: 'home' }, clientId);
+  return buildSiteUrl(base, clientId);
 }
 
 export function buildSupportUrl(base, clientId) {
-  try {
-    const url = new URL(base);
-    if (clientId) {
-      url.searchParams.set('start', `YDincy_lab_${clientId}`);
-    }
-    return url.href;
-  } catch {
-    return base;
-  }
+  return buildBotUrl(base, clientId);
 }
 
 let clientIdPromise = null;

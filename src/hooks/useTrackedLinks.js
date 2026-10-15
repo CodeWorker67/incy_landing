@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { BOT_URL, SITE_URL, SUPPORT_URL } from '@utils/constants';
 import {
   buildBotUrl,
@@ -14,17 +14,9 @@ export function useTrackedLinks() {
     getYandexClientId().then(setClientId);
   }, []);
 
-  const siteLink = useCallback(
-    (medium, campaign = 'home') => buildSiteUrl(SITE_URL, { medium, campaign }, clientId),
-    [clientId],
-  );
+  const siteUrl = useMemo(() => buildSiteUrl(SITE_URL, clientId), [clientId]);
+  const botUrl = useMemo(() => buildBotUrl(BOT_URL, clientId), [clientId]);
+  const supportUrl = useMemo(() => buildSupportUrl(SUPPORT_URL, clientId), [clientId]);
 
-  const botLink = useCallback(
-    (startTag) => buildBotUrl(BOT_URL, startTag, clientId),
-    [clientId],
-  );
-
-  const supportUrl = buildSupportUrl(SUPPORT_URL, clientId);
-
-  return { siteLink, botLink, supportUrl, clientId };
+  return { siteUrl, botUrl, supportUrl, clientId };
 }

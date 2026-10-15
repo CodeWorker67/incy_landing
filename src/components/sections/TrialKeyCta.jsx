@@ -1,8 +1,7 @@
 import { useTrackedLinks } from '@/hooks/useTrackedLinks';
-import { BOT_START } from '@utils/constants';
 
-export default function TrialKeyCta({ siteMedium = 'hard', botStart = BOT_START.analogHappHard, campaign = 'home' }) {
-  const { siteLink, botLink } = useTrackedLinks();
+export default function TrialKeyCta() {
+  const { siteUrl, botUrl } = useTrackedLinks();
 
   return (
     <div
@@ -23,7 +22,7 @@ export default function TrialKeyCta({ siteMedium = 'hard', botStart = BOT_START.
         Получите ключ за пару кликов и вставьте в INCY. Один ключ — на 3–7 устройств.
       </p>
       <div className="cta-row mt-4" style={{ justifyContent: 'center' }}>
-        <a href={siteLink(siteMedium, campaign)} rel="nofollow" className="btn btn-win">
+        <a href={siteUrl} rel="nofollow" className="btn btn-win">
           Получить ключ — 1 день бесплатно →
         </a>
       </div>
@@ -32,7 +31,7 @@ export default function TrialKeyCta({ siteMedium = 'hard', botStart = BOT_START.
       </p>
       <p className="link-alt mt-1">
         Удобнее в Телеграме?{' '}
-        <a href={botLink(botStart)} rel="nofollow">
+        <a href={botUrl} rel="nofollow">
           Ключ в боте →
         </a>
       </p>

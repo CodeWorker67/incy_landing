@@ -1,8 +1,6 @@
 import { useTrackedLinks } from '@/hooks/useTrackedLinks';
-import { BOT_START } from '@utils/constants';
-
 export default function KeySection() {
-  const { siteLink, botLink } = useTrackedLinks();
+  const { siteUrl, botUrl } = useTrackedLinks();
 
   return (
     <section id="key" className="mt-24">
@@ -25,7 +23,7 @@ export default function KeySection() {
             </p>
             <p className="mt-2" style={{ color: 'var(--color-ink-soft)', maxWidth: '40ch', fontSize: '0.93rem' }}>
               Ключ уже был, но закончился срок?{' '}
-              <a href={siteLink('key', 'renew')} style={{ color: 'var(--color-brand)' }}>
+              <a href={siteUrl} style={{ color: 'var(--color-brand)' }}>
                 Кому платить за INCY и как продлить →
               </a>
             </p>
@@ -51,7 +49,7 @@ export default function KeySection() {
               Получите ключ за пару кликов и вставьте в INCY. Один ключ — на 3–7 устройств.
             </p>
             <div className="cta-row mt-4" style={{ justifyContent: 'center' }}>
-              <a href={siteLink('hard')} rel="nofollow" className="btn btn-win">
+              <a href={siteUrl} rel="nofollow" className="btn btn-win">
                 Получить ключ — 1 день бесплатно →
               </a>
             </div>
@@ -60,7 +58,7 @@ export default function KeySection() {
             </p>
             <p className="link-alt mt-1">
               Удобнее в Телеграме?{' '}
-              <a href={botLink(BOT_START.homeHard)} rel="nofollow">
+              <a href={botUrl} rel="nofollow">
                 Ключ в боте →
               </a>
             </p>
