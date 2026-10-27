@@ -1,14 +1,16 @@
 const YANDEX_METRIKA_ID =
   Number(import.meta.env.VITE_YANDEX_METRIKA_ID) || 113482931;
 
-const SITE_START = import.meta.env.VITE_SITE_START || 'incy_lab';
-const BOT_START_PREFIX = import.meta.env.VITE_BOT_START_PREFIX || 'YDincy_lab_';
+const SITE_START = import.meta.env.VITE_SITE_START;
+const BOT_START_PREFIX = import.meta.env.VITE_BOT_START_PREFIX;
 
-/** Сайт: ?start=incy_lab&ClientIDYandex=… */
+/** Сайт: ?start={VITE_SITE_START}&ClientIDYandex=… */
 export function buildSiteUrl(base, clientId) {
   try {
     const url = new URL(base);
-    url.searchParams.set('start', SITE_START);
+    if (SITE_START) {
+      url.searchParams.set('start', SITE_START);
+    }
     if (clientId) {
       url.searchParams.set('ClientIDYandex', clientId);
     }
@@ -18,11 +20,11 @@ export function buildSiteUrl(base, clientId) {
   }
 }
 
-/** Telegram-бот: ?start=YDincy_lab_{ClientID} */
+/** Telegram-бот: ?start={VITE_BOT_START_PREFIX}{ClientID} */
 export function buildBotUrl(base, clientId) {
   try {
     const url = new URL(base);
-    if (clientId) {
+    if (clientId && BOT_START_PREFIX) {
       url.searchParams.set('start', `${BOT_START_PREFIX}${clientId}`);
     }
     return url.href;
