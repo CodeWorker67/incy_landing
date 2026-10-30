@@ -37,7 +37,7 @@ export default function Header() {
           </nav>
           <div className="head-right">
             <a href={siteUrl} rel="nofollow" className="btn btn-win btn-sm">
-              1 день бесплатно
+              3 дня за 9 ₽
             </a>
             <details className="mobile-nav">
               <summary aria-label="Меню">

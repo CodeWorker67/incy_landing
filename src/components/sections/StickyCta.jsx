@@ -52,9 +52,11 @@ export default function StickyCta() {
 
   return (
     <div className="sticky-cta" ref={barRef} hidden>
-      <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-ink)' }}>Рабочий ключ для INCY</span>
+      <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-ink)' }}>
+        3 дня за 9 ₽ · без автосписаний
+      </span>
       <a href={siteUrl} rel="nofollow" className="btn btn-win btn-sm">
-        1 день бесплатно →
+        3 дня за 9 ₽ →
       </a>
       <button type="button" className="sticky-cta-x" aria-label="Скрыть предложение" onClick={close}>
         ×

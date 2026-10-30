@@ -9,7 +9,7 @@ export default function KeySection() {
           <div>
             <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 1.75rem)' }}>Нужен ключ для INCY</h2>
             <p className="mt-3" style={{ color: 'var(--color-ink-soft)', maxWidth: '40ch' }}>
-              Публичные бесплатные ключи живут 1–3 дня. Стабильный ключ можно попробовать бесплатно 1 день — вставьте
+              Публичные бесплатные ключи живут 1–3 дня. Стабильный ключ можно попробовать 3 дня за 9 рублей — вставьте
               его в поле «Ссылка».{' '}
               <a href="#key" style={{ color: 'var(--color-brand)' }}>
                 Подробнее о ключах для INCY →
@@ -43,18 +43,18 @@ export default function KeySection() {
             }}
           >
             <p style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.3rem', color: 'var(--color-ink)' }}>
-              Ключ для INCY — 1 день бесплатно
+              Ключ для INCY — 3 дня за 9 рублей
             </p>
             <p className="mt-2" style={{ color: 'var(--color-ink-soft)', fontSize: '0.97rem', maxWidth: '48ch', marginInline: 'auto' }}>
               Получите ключ за пару кликов и вставьте в INCY. Один ключ — на 3–7 устройств.
             </p>
             <div className="cta-row mt-4" style={{ justifyContent: 'center' }}>
               <a href={siteUrl} rel="nofollow" className="btn btn-win">
-                Получить ключ — 1 день бесплатно →
+                Получить ключ — 3 дня за 9 ₽ →
               </a>
             </div>
             <p className="mono mt-3" style={{ fontSize: '0.72rem', color: 'var(--color-ink-faint)' }}>
-              без карты · оплата СБП · от 99 ₽/мес
+              3 дня за 9 ₽ · без автосписаний · оплата СБП · от 99 ₽/мес
             </p>
             <p className="link-alt mt-1">
               Удобнее в Телеграме?{' '}

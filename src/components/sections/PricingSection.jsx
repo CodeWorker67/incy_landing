@@ -14,14 +14,14 @@ export default function PricingSection() {
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 44 }}>
           <p className="kicker">Тарифы</p>
-          <h2 className="h2">Начните бесплатно</h2>
-          <p style={{ fontSize: 16, color: '#5A5A6A', marginTop: 10 }}>1 день бесплатно</p>
+          <h2 className="h2">Попробуйте за 9 рублей</h2>
+          <p style={{ fontSize: 16, color: '#5A5A6A', marginTop: 10 }}>3 дня — полный доступ · без автосписаний</p>
         </div>
         <div style={{ border: '1.5px solid rgba(0,0,0,.07)', borderRadius: 22, overflow: 'hidden', background: '#fff' }}>
           <div className="price-row">
             <div style={{ flex: 1 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <span style={{ fontSize: 17, fontWeight: 800 }}>1 день</span>
+                <span style={{ fontSize: 17, fontWeight: 800 }}>3 дня</span>
                 <span
                   style={{
                     background: '#EDF9F1',
@@ -36,11 +36,15 @@ export default function PricingSection() {
                   Пробный
                 </span>
               </div>
-              <div style={{ fontSize: 13, color: '#5A5A6A', marginTop: 2 }}>Полный доступ, все локации</div>
+              <div style={{ fontSize: 13, color: '#5A5A6A', marginTop: 2 }}>
+                Полный доступ, все локации · без автосписаний
+              </div>
             </div>
             <div className="price-col">
-              <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: -1.5, lineHeight: 1 }}>бесплатно</div>
-              <div style={{ fontSize: 12, color: '#9A9AAA', marginTop: 3 }}>за 1 день</div>
+              <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: -1.5, lineHeight: 1 }}>
+                9 <Rub>₽</Rub>
+              </div>
+              <div style={{ fontSize: 12, color: '#9A9AAA', marginTop: 3 }}>за 3 дня</div>
             </div>
             <a className="price-btn" href={authUrl}>
               Попробовать
