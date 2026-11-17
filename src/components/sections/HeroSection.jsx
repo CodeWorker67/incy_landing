@@ -63,12 +63,9 @@ export default function HeroSection() {
             Скачать INCY
           </a>
           <a href={siteUrl} rel="nofollow" className="btn btn-ghost">
-            Ключ — 3 дня за 9 ₽ →
+            Ключ на 1 день бесплатно →
           </a>
         </div>
-        <p className="mono mt-3" style={{ fontSize: '0.78rem', color: 'var(--color-ink-faint)' }}>
-          3 дня за 9 ₽ · без автосписаний
-        </p>
       </div>
       <HeroVisual />
     </section>

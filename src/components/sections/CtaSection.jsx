@@ -30,16 +30,16 @@ export default function CtaSection() {
             marginBottom: 14,
           }}
         >
-          Три дня за 9 рублей.
+          Один день бесплатно.
           <br />
           Прямо сейчас.
         </h2>
         <p style={{ fontSize: 17, color: 'rgba(255,255,255,.75)', marginBottom: 32 }}>
-          Разовая оплата 9 ₽ за 3 дня. Без автосписаний.
+          Регистрация за минуту. Аккаунт создаётся автоматически.
         </p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
           <a className="cta-white" href={authUrl}>
-            Попробовать за 9 рублей
+            Попробовать бесплатно
           </a>
           <a className="cta-ghost" href={supportUrl} target="_blank" rel="noopener noreferrer">
             Написать в поддержку
