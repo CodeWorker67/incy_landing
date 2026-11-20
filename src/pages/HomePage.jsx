@@ -1,15 +1,17 @@
+import { lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@components/navigation/Header';
 import Footer from '@components/navigation/Footer';
 import HeroSection from '@components/sections/HeroSection';
-import CapsuleSection from '@components/sections/CapsuleSection';
-import DownloadSection from '@components/sections/DownloadSection';
-import StepsSection from '@components/sections/StepsSection';
-import KeySection from '@components/sections/KeySection';
-import FeaturesSection from '@components/sections/FeaturesSection';
-import HappSection from '@components/sections/HappSection';
-import FaqSection from '@components/sections/FaqSection';
-import StickyCta from '@components/sections/StickyCta';
+
+const CapsuleSection = lazy(() => import('@components/sections/CapsuleSection'));
+const DownloadSection = lazy(() => import('@components/sections/DownloadSection'));
+const StepsSection = lazy(() => import('@components/sections/StepsSection'));
+const KeySection = lazy(() => import('@components/sections/KeySection'));
+const FeaturesSection = lazy(() => import('@components/sections/FeaturesSection'));
+const HappSection = lazy(() => import('@components/sections/HappSection'));
+const FaqSection = lazy(() => import('@components/sections/FaqSection'));
+const StickyCta = lazy(() => import('@components/sections/StickyCta'));
 
 const TITLE = 'INCY (Инси) — официальный сайт: скачать приложение для ПК, Android, iPhone, ТВ';
 const DESCRIPTION =
@@ -29,16 +31,20 @@ export default function HomePage() {
       <Header />
       <main className="shell" style={{ paddingTop: '2.2rem', paddingBottom: '3.5rem' }}>
         <HeroSection />
-        <CapsuleSection />
-        <DownloadSection />
-        <StepsSection />
-        <KeySection />
-        <FeaturesSection />
-        <HappSection />
-        <FaqSection />
+        <Suspense fallback={null}>
+          <CapsuleSection />
+          <DownloadSection />
+          <StepsSection />
+          <KeySection />
+          <FeaturesSection />
+          <HappSection />
+          <FaqSection />
+        </Suspense>
       </main>
       <Footer />
-      <StickyCta />
+      <Suspense fallback={null}>
+        <StickyCta />
+      </Suspense>
     </div>
   );
 }

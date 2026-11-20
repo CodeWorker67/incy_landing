@@ -18,5 +18,5 @@ export function useTrackedLinks() {
   const botUrl = useMemo(() => buildBotUrl(BOT_URL, clientId), [clientId]);
   const supportUrl = useMemo(() => buildSupportUrl(SUPPORT_URL, clientId), [clientId]);
 
-  return { siteUrl, botUrl, supportUrl, clientId };
+  return { siteUrl, botUrl, supportUrl, clientId, authUrl: siteUrl };
 }

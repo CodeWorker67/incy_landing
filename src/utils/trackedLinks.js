@@ -1,3 +1,5 @@
+import { ensureHttpsBase, mergeLandingQueryIntoUrl } from '@utils/urlParams';
+
 const YANDEX_METRIKA_ID =
   Number(import.meta.env.VITE_YANDEX_METRIKA_ID) || 113482931;
 
@@ -7,7 +9,8 @@ const BOT_START_PREFIX = import.meta.env.VITE_BOT_START_PREFIX;
 /** Сайт: ?start={VITE_SITE_START}&ClientIDYandex=… */
 export function buildSiteUrl(base, clientId) {
   try {
-    const url = new URL(base);
+    const url = new URL(ensureHttpsBase(base));
+    mergeLandingQueryIntoUrl(url);
     if (SITE_START) {
       url.searchParams.set('start', SITE_START);
     }
@@ -16,7 +19,7 @@ export function buildSiteUrl(base, clientId) {
     }
     return url.href;
   } catch {
-    return base;
+    return ensureHttpsBase(base);
   }
 }
 
